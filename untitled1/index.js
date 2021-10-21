@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express();
+app.use(require('cors')())
 const server = require("http").createServer(app);
 const { Server } = require('socket.io')
 
 const io = new Server(server);
-server.use(require('cors')())
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname+'/socket.html');
